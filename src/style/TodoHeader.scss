@@ -1,0 +1,20 @@
+div.TodoHeaderContainer{
+  width: 100%;
+  padding: 48px 32px 32px 24px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e9ecef;
+  div.todoDate{
+    font-size: 36px;
+  }
+  div.todoDateName{
+    font-size: 20px;
+    color: #868e96;
+    margin-top: 4px;
+  }
+  div.todoListLeft{
+    font-size: 18px;
+    color: #20c997;
+    font-weight: bold;
+    margin-top: 40px;
+  }
+}
