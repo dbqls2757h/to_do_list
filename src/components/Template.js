@@ -1,10 +1,10 @@
 import React from 'react';
-import '../style/Layout.scss'
+import '../style/Template.scss'
 
-const Layout = ({children}) => {
+const Template = ({children}) => {
     return (
         <div className="layoutContainer">{children}</div>
     );
 };
 
-export default Layout;
+export default Template;

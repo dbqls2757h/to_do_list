@@ -1,0 +1,49 @@
+div.todoItemContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+
+  div.todoDelete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:hover{
+      color: #ff6b6b;
+    }
+    display: none;
+  }
+
+  &:hover div.todoDelete{
+    display: block;
+  }
+
+  div.todoCheckCircle{
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    border-radius: 16px;
+    border: 1px solid #ced4ba;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    cursor: pointer;
+    &.active{
+      color: #38d9a9;
+      border: 1px solid #38d9a9;
+    }
+  }
+
+  div.todoTxt{
+    flex: 1;
+    font-size: 20px;
+    color: #495057;
+    &.active{
+      color: #ced4da;
+    }
+  }
+}

@@ -2,17 +2,22 @@ import React from 'react';
 import '../style/TodoHeader.scss'
 
 const TodoHeader = () => {
-
+    //Date method
     const today = new Date();
 
-    const year = today.getFullYear() + "년";
-    const month = today.getMonth() + 1;
-    const day = today.getDate();
+    const dateString = today.toLocaleDateString('ko-KR',{
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    })
+
+    const dayString = today.toLocaleDateString('ko-KR', {weekday: 'long'})
+
     return (
         <div className="TodoHeaderContainer">
-            <h1 className="todoDate">{year}</h1>
-            <div className="todoDateName">{month}</div>
-            <div className="todoListLeft">{day}</div>
+            <h1 className="todoDate">{dateString}</h1>
+            <div className="todoDayName">{dayString}</div>
+            <div className="todoListLeft">할일 개 남음</div>
         </div>
     );
 };
