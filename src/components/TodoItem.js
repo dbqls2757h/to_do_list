@@ -8,7 +8,7 @@ const TodoItem = ({todo, onCheckToggle, onRemove}) => {
 
     return (
         <div className="todoItemContainer">
-            <div className={`content ${checked ? "checked" : ""} todoItems`}>
+            <div className={`content ${checked ? "checked" : ""} todoItems checkedBox`}>
                 {checked ? <div className="circleBtn" onClick={() => {
                     onCheckToggle(id)
                 }}/> : <div className="hasChecked" onClick={() => {

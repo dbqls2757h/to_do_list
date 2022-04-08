@@ -3,6 +3,7 @@ import '../style/TodoList.scss';
 import TodoItem from "./TodoItem";
 
 const TodoList = ({todos, onCheckToggle, onRemove}) => {
+
     return (
         <div className="todoListContainer">
             {todos.map(todo =>(

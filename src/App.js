@@ -18,18 +18,23 @@ const App = () => {
     const [todos, setTodos] = useState([
         {
             id: 1,
-            text: "할일 1",
-            checked: true
+            text: "아침 산책",
+            checked: false
         },
         {
             id: 2,
-            text: "할일 2",
-            checked: true
+            text: "오늘의 뉴스 읽기",
+            checked: false
         },
         {
             id: 3,
-            text: "할일 3",
-            checked: true
+            text: "샌드위치 사 먹기",
+            checked: true,
+        },
+        {
+            id: 4,
+            text: "리액트 공부하기",
+            checked: true,
         }
     ]);
 
@@ -51,6 +56,7 @@ const App = () => {
         }
     }
 
+
     const onCheckToggle = (id) => {
         setTodos(todos => todos.map(todo => todo.id === id ? {...todo, checked: !todo.checked} : todo))
     }
@@ -61,7 +67,7 @@ const App = () => {
 
     return (
         <Template>
-            <TodoHeader todoLength={todos.length}/>
+            <TodoHeader todoLen={todos.filter(todo => todo.checked === true).length}/>
             <TodoList todos={todos} onCheckToggle={onCheckToggle} onRemove={onRemove}/>
             <button type="submit" onClick={(e) => {
                 clickBtn(e)
