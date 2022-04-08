@@ -1,49 +1,55 @@
-div.todoItemContainer{
+div.todoItemContainer {
+  width: 100%;
+  overflow: hidden;
+  padding: 12px 20px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 12px 20px;
+  position: relative;
 
-  div.todoDelete{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  div.todoItems {
+    width: 25px;
+    height: 25px;
     cursor: pointer;
-    &:hover{
-      color: #ff6b6b;
+
+    div.circleBtn {
+      width: 25px;
+      height: 25px;
+      border: 2px solid #c5c5c5;
+      border-radius: 50%;
     }
-    display: none;
-  }
 
-  &:hover div.todoDelete{
-    display: block;
-  }
-
-  div.todoCheckCircle{
-    width: 32px;
-    height: 32px;
-    color: #fff;
-    border-radius: 16px;
-    border: 1px solid #ced4ba;
-    font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
-    cursor: pointer;
-    &.active{
+    div.hasChecked {
+      width: 25px;
+      height: 25px;
+      border: 2px solid #38d9a9;
+      border-radius: 50%;
       color: #38d9a9;
-      border: 1px solid #38d9a9;
+    }
+
+  }
+
+  div.todoTxt {
+    padding-left: 20px;
+    cursor: pointer;
+    &.opacity{
+      opacity: 0.2;
     }
   }
 
-  div.todoTxt{
-    flex: 1;
-    font-size: 20px;
-    color: #495057;
-    &.active{
-      color: #ced4da;
+  div.deleteBtn {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    display: none;
+    color: #c5c5c5;
+
+    &:hover {
+      color: #FF0023;
     }
+  }
+
+  &:hover .deleteBtn {
+    display: block;
   }
 }

@@ -1,9 +1,14 @@
 import React from 'react';
 import '../style/TodoList.scss';
+import TodoItem from "./TodoItem";
 
-const TodoList = ({todos}) => {
+const TodoList = ({todos, onCheckToggle, onRemove}) => {
     return (
-        <div>{todos.map((todo)=>(<div>{todo.text}</div>))}</div>
+        <div className="todoListContainer">
+            {todos.map(todo =>(
+                <TodoItem key={todo.id} todo={todo} onCheckToggle={onCheckToggle} onRemove={onRemove}/>
+            ))}
+        </div>
     );
 };
 

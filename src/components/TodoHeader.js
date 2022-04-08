@@ -1,7 +1,7 @@
 import React from 'react';
 import '../style/TodoHeader.scss'
 
-const TodoHeader = () => {
+const TodoHeader = ({todoLength}) => {
     //Date method
     const today = new Date();
 
@@ -17,7 +17,7 @@ const TodoHeader = () => {
         <div className="TodoHeaderContainer">
             <h1 className="todoDate">{dateString}</h1>
             <div className="todoDayName">{dayString}</div>
-            <div className="todoListLeft">할일 개 남음</div>
+            <div className="todoListLeft">할일 {todoLength}개 남음</div>
         </div>
     );
 };

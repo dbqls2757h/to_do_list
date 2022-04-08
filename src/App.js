@@ -12,8 +12,8 @@ let nextId = 4;
 const App = () => {
     const clickBtn = (e) => {
         e.currentTarget.classList.toggle('active')
-    }
-
+    };
+    const [isOpen, setIsOpen] = useState(false);
 
     const [todos, setTodos] = useState([
         {
@@ -33,30 +33,46 @@ const App = () => {
         }
     ]);
 
+    const onInsertOpen = () => {
+        setIsOpen(isOpen => !isOpen)
+    }
+
     const onInsertTodo = (text) => {
-        if(text === ""){
+        if (text === "") {
             return alert("할 일을 입력해주세요")
-        }else{
+        } else {
             const todo = {
                 id: nextId,
                 text,
                 checked: false
             }
-            setTodos(todo =>  todos.concat(todo));
+            setTodos(todos => todos.concat(todo));
             nextId++;
         }
     }
 
+    const onCheckToggle = (id) => {
+        setTodos(todos => todos.map(todo => todo.id === id ? {...todo, checked: !todo.checked} : todo))
+    }
+
+    const onRemove = id => e => {
+        setTodos(todos.filter(todo => todo.id !== id));
+    };
+
     return (
         <Template>
             <TodoHeader todoLength={todos.length}/>
-            <TodoList todos={todos}/>
-            <button type="submit" onClick={(e)=>{
+            <TodoList todos={todos} onCheckToggle={onCheckToggle} onRemove={onRemove}/>
+            <button type="submit" onClick={(e) => {
                 clickBtn(e)
+                onInsertOpen()
             }}>
                 <Add className="addBtn"/>
             </button>
-            <TodoInsert onInsertTodo={onInsertTodo}/>
+            {isOpen && <TodoInsert
+                onInsertOpen={onInsertOpen}
+                onInsertTodo={onInsertTodo}
+            />}
         </Template>
     );
 };

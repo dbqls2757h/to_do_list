@@ -2,23 +2,21 @@ import React from 'react';
 import "../style/TodoItem.scss"
 import {Check, Delete} from "@material-ui/icons";
 
-const TodoItem = () => {
+const TodoItem = ({todo, onCheckToggle, onRemove}) => {
 
-
-    const checked = (e) => {
-    const todoTxt = document.querySelector('.todoTxt');
-        e.currentTarget.classList.toggle('active');
-        todoTxt.classList.toggle('active');
-    }
-
+    const {id, text, checked} = todo;
 
     return (
         <div className="todoItemContainer">
-            <div className="todoCheckCircle" onClick={checked}>
-                <Check className="check"/>
+            <div className={`content ${checked ? "checked" : ""} todoItems`}>
+                {checked ? <div className="circleBtn" onClick={() => {
+                    onCheckToggle(id)
+                }}/> : <div className="hasChecked" onClick={() => {
+                    onCheckToggle(id)
+                }}><Check/></div>}
             </div>
-            <div className="todoTxt">asdf</div>
-            <div className="todoDelete">
+            <div className="todoTxt">{text}</div>
+            <div className="deleteBtn" onClick={onRemove(id)}>
                 <Delete/>
             </div>
         </div>
